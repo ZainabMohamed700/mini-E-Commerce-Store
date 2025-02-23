@@ -3,87 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Commerce Store</title>
+    <title>mini ecommerce</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/all.min.css">
 </head>
 <body class="bg-light">
-    
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm fixed-top">
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#">
-                <i class="fas fa-store me-2"></i>متجرنا
-            </a>
-            <div class="d-flex align-items-center">
-                <div class="input-group search-container">
-                    <input type="text" class="form-control" id="searchInput" placeholder="ابحث عن منتج...">
-                    <button class="btn btn-light">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-                <button class="btn btn-light ms-2" id="filterPrice">
-                    <i class="fas fa-filter"></i> فلترة
-                </button>
+            <h1 class="navbar-brand mb-0">متجر المنتجات</h1>
+            <div class="d-flex align-items-center gap-3">
+                <input type="text" id="search" class="form-control" placeholder="ابحث عن منتج...">
+                <select id="category-filter" class="form-select">
+                    <option value="">كل الفئات</option>
+                </select>
+                <select id="price-filter" class="form-select">
+                    <option value="">الترتيب بالسعر</option>
+                    <option value="low">من الأقل للأعلى</option>
+                    <option value="high">من الأعلى للأقل</option>
+                </select>
             </div>
+            <nav class="d-flex gap-2">
+                <a href="favorites.html" class="btn btn-danger">❤️ المفضلة</a>
+                <a href="cart.html" class="btn btn-primary">🛒 السلة</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <!-- Filters Section -->
-    <div class="container mt-5 pt-4">
-        <div class="filters-section">
-            <div class="row g-3">
-                <div class="col-lg-3 col-md-6">
-                    <div class="filter-group">
-                        <label>الفئة</label>
-                        <select class="form-select" id="categoryFilter">
-                            <option value="">جميع الفئات</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="filter-group">
-                        <label>التقييم</label>
-                        <select class="form-select" id="ratingFilter">
-                            <option value="">جميع التقييمات</option>
-                            <option value="4">4 نجوم وأكثر</option>
-                            <option value="3">3 نجوم وأكثر</option>
-                            <option value="2">2 نجوم وأكثر</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="filter-group">
-                        <label>السعر حتى</label>
-                        <input type="range" class="form-range" id="priceRange" min="0" max="1000" step="10">
-                        <div class="d-flex justify-content-between">
-                            <span>0$</span>
-                            <span id="maxPrice">1000$</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <main class="container my-5">
+        <div id="products-container" class="row g-4"></div>
+    </main>
 
-    <!-- Products Container -->
-    <div class="container mt-3">
-        <div class="row g-4" id="productsContainer"></div>
-    </div>
-
-    <!-- Product Details Modal -->
-    <div class="modal fade" id="productModal">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <div class="modal-body p-4" id="productDetails"></div>
-            </div>
-        </div>
-    </div>
-    
+    <div id="notification" class="notification"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="app.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
